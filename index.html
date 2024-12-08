@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px 20px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .verified-icon {
+            font-size: 60px;
+            color: #4caf50;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .logohcclub {
+            width: 120px;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .details {
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: left;
+            line-height: 1.8;
+            color: #444;
+            text-align: center;
+        }
+
+        .details p {
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .error {
+            color: #e53935;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .error-subtext {
+            color: #777;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 22px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .details {
+                font-size: 14px;
+            }
+
+            .logohcclub {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="verification-container">
+        <!-- Content will be dynamically updated via JavaScript -->
+    </div>
+
+    <script>
+        const participants = [
+    { name: "More Amarjeet Uttam", email: "moreamarjeet67@gmail.com" },
+    { name: "Adesh Maruti Randive", email: "adeshrandive8@gmail.com" },
+    { name: "Swapnil Prakash Pawar", email: "gamoddicto@gmail.com" },
+    { name: "Soham Gouraje", email: "sohamgouraje961@gmail.com" },
+    { name: "Kulkarni Aditya Sameer", email: "adityak3618@gmail.com" },
+    { name: "Sayali Dnyaneshwar Budhwat", email: "budhwatsayali@gmail.com" },
+    { name: "KATE RAJ DNYANESHWAR", email: "rajkate4747@gmail.com" },
+    { name: "Mansi Awari", email: "mansiawari2@gmail.com" },
+    { name: "VARUN RAJPUT", email: "vaarunnnrajput06@gmail.com" },
+    { name: "Borkar Mayur Santosh", email: "mayurborkar108@gmail.com" },
+    { name: "Prathamesh Vilas Girhe", email: "prathameshgirhe1@gmail.com" },
+    { name: "Tejas Nagesh Sawant", email: "tsawant360@gmail.com" },
+    { name: "Yogita Patil", email: "yogitapatil4434@gmail.com" },
+    { name: "Rale Vaishnavi Shantaram", email: "vaishnavi110530@gmail.com" },
+    { name: "Ananya Tengle", email: "sidteng8@gmail.com" },
+    { name: "Lone Rohit Ramesh", email: "lonerohit7@gmail.com" },
+    { name: "Pawar Vaibhav Sanjay", email: "vaibhavpawarmit@gmail.com" },
+    { name: "Boramane Nachiket Suresh", email: "bnachiket88@gmail.com" },
+    { name: "Aditya Jayant Medhane", email: "medhaneaditya23@gmail.com" },
+    { name: "Shreya Suresh Kale", email: "kaleshreya681@gmail.com" },
+    { name: "CHORE PRANJALI ARJUN", email: "chorepranjal@gmail.com" },
+    { name: "Gauri Kishor Mali", email: "maligauri52@gmail.com" },
+    { name: "Ashish Sanjay Abhang", email: "ashishabhang47@gmail.com" },
+    { name: "ABHAY Bajrang Chachar", email: "chacharabhay@gmail.com" },
+    { name: "Shekh Shahid Sikandar", email: "sshaikh75157@gmail.com" },
+    { name: "Bidgar Jagdish Nanabhau", email: "jagdishbidgar6@gmail.com" },
+    { name: "Shravan Jitendra Bairagi", email: "bairagishravanjitendra@gmail.com" },
+    { name: "Ghate piyush Santosh", email: "piyushghate712@gmail.com" },
+    { name: "Pawar Yash Ankush", email: "ypk918764@gmail.com" },
+    { name: "Sabale shraddha yogesh", email: "sabaleshraddha654@gmail.com" },
+    { name: "Sanket shelke", email: "sanket05shelke@gmail.com" },
+    { name: "Gayake aditya dipak", email: "adityagayke4045@gmail.com" },
+    { name: "Tejas Rakesh Dilwale", email: "tejasdilwale10@gmail.com" },
+    { name: "Himanshu Naikwade", email: "naikwadehimanshu007@gmail.com" },
+    { name: "GAURAV SANTOSH JADHAV", email: "gj2021237@gmail.com" },
+    { name: "Bhagat Rohan Sanjay", email: "sanjaybhagat161979@gmail.com" },
+    { name: "Wadekar vinayak vikas", email: "wadekarv53@gmail.com" },
+    { name: "Vishal Daji Rupanawar", email: "vishalrupanawar305@gmail.com" },
+    { name: "Viraj Nikhil Tilekar", email: "virajtilekar5@gmail.com" },
+    { name: "ABHISHEK KACHARE", email: "abhishekrkachare138@gmail.com" },
+    { name: "Tanvi Premchand Kusumbe", email: "tanvikusumbe98@gmail.com" },
+    { name: "Rohit Suresh Prakshale", email: "rohitprakshale966@gmail.com" },
+    { name: "Sanskruti Vijay Yerolkar", email: "sanskrutiyerolkar@gmail.com" },
+    { name: "Megha Ankush Shinde", email: "shindepatil2323@gmail.com" },
+    { name: "Yash Sandeep Misal", email: "yashmisal60@gmail.com" },
+    { name: "Sapna Shantaram Ture", email: "sapnature1@gmail.com" },
+    { name: "YASH DIPAK KAYASTHA", email: "yashkayastha195@gmail.com" },
+    { name: "Nikita Dnyaneshwar Shingote", email: "nikitashingote46@gmail.com" },
+    { name: "Aryan Jadhav", email: "aryanjadhav3724@gmail.com" },
+    { name: "SANKET SHESHERAO SONKAMBLE", email: "sanketsonkamble57@gmail.com" },
+    { name: "Samarth maruti kumbhar", email: "kumbharsamarth885@gmail.com" },
+    { name: "Balaji Budhawant", email: "balajibud937@gmail.com" },
+    { name: "Samidha deshmukh", email: "dsamidha169@gmail.com" },
+    { name: "Vaishnavi Hansraj Patil", email: "vaishnupatil1708@gmail.com" },
+    { name: "Piyush Tanaji Chavan", email: "piyushchavan8515@gmail.com" },
+    { name: "Yuvraj Ramesh Kanal", email: "ykanal355@gmail.com" },
+    { name: "Pranav Naresh Aseri", email: "aseripranav@gmail.com" },
+    { name: "HARSHAL SOPAN JADHAV", email: "jharshal040@gmail.com" },
+    { name: "TAMALKRISHNA VILAS PAWAR", email: "tamalkrishna2006@gmail.com" },
+    { name: "Jamadade sakshi Santosh", email: "sakshijamadade06@gmail.com" },
+    { name: "Sanskruti Hirakant Balinavar", email: "sanskrutibalinavar@gmail.com" },
+    { name: "Vedika Vshisht Khose", email: "vedikakhose@gmail.com" },
+    { name: "Saniya Raskar", email: "saniyaraskar7218@gmail.com" },
+    { name: "Pawar Tanmay Kiran", email: "pawartanmay433@gmail.com" },
+];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+
+        const container = document.getElementById('verification-container');
+        const participant = participants.find(p => p.email === email);
+
+        if (participant) {
+            container.innerHTML = `
+                <div class="verified-icon">✔️</div>
+                <div class="title">Certificate Verified</div>
+                <img class="logohcclub" src="logo.png" alt="Hackathon Club Logo">
+                <div class="subtitle">Verified by Hackathon Club</div>
+                <div class="details">
+                    <p><strong>Name:</strong> ${participant.name}</p>
+                    <p><strong>Email:</strong> ${participant.email}</p>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <div class="error">Invalid Certificate</div>
+                <div class="error-subtext">This certificate could not be verified.</div>
+            `;
+        }
+    </script>
+</body>
+</html>
